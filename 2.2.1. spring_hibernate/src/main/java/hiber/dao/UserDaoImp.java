@@ -20,6 +20,20 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
+   public void update(User user) {
+      if (user.getId() != 0){
+         sessionFactory.getCurrentSession().update(user);
+      }
+   }
+
+   @Override
+   public User get(long id) {
+      //return sessionFactory.getCurrentSession().load(User.class, id);
+      return sessionFactory.getCurrentSession().createQuery("SELECT u FROM User u WHERE u.id = :id", User.class)
+              .setParameter("id", id).getSingleResult();
+   }
+
+   @Override
    @SuppressWarnings("unchecked")
    public List<User> listUsers() {
       TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery("from User");
