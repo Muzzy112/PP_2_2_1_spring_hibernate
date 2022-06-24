@@ -1,7 +1,6 @@
 package hiber.service;
 
 import hiber.dao.CarDao;
-import hiber.dao.UserDao;
 import hiber.model.Car;
 import hiber.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +15,8 @@ public class CarServiceImpl implements CarService{
     private CarDao dao;
 
     @Override
-    public void add(Car car) {
-        dao.add(car);
+    public void save(Car car) {
+        dao.save(car);
     }
 
     @Override
