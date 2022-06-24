@@ -19,7 +19,6 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   // https://sgitario.github.io/jpa-hibernate-cascade-scenarios/
    @OneToOne(mappedBy = "user")
    private Car car;
 
